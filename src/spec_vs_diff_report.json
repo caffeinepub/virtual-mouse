@@ -1,19 +1,22 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-21T06:28:50.376Z",
-  "summary": "The implementation successfully addresses all 11 requirements (REQ-20 through REQ-30). The main heading was updated to 'Cyber Puppet', a subheading was added, the 3D robot model now includes a rotating turntable platform, all seven gesture mappings have been updated with new voice feedback and animations, and the instructions modal reflects all the new gesture-to-action mappings. No missing requirements or hallucinated features were detected.",
+  "generatedAt": "2026-02-21T12:24:21.722Z",
+  "summary": "The diff implements both requirements effectively. REQ-46 optimizations include faster animation speeds (delta * 8 for jump, delta * 15 for clap, delta * 12 for wave), reduced animation durations (0.6s for rotation, 0.5s for raise hands), increased lerp coefficients (0.3 to 0.35), and immediate gesture response through optimized useEffect logic. REQ-47 removes autonomous rotation by eliminating continuous rotation logic and making rotation gesture-triggered only for the peace gesture with explicit time-limited execution.",
   "missing_requirements": [],
-  "hallucinated_features": [],
-  "confidence": 0.95,
+  "hallucinated_features": [
+    {
+      "description": "Added idle floating animation when no gesture is detected (Math.sin(state.clock.elapsedTime * 0.5) * 0.1)",
+      "reason": "This behavior was not requested in the BuildRequest. The requirement states robot should 'remain stationary when no gesture is detected' (REQ-47 AC), but the implementation adds a subtle floating/bobbing motion during idle state.",
+      "evidence": [
+        "frontend/src/components/RobotModel.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.92,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/App.tsx",
-    "frontend/src/components/GestureStatus.tsx",
-    "frontend/src/components/InstructionsModal.tsx",
     "frontend/src/components/RobotModel.tsx",
-    "frontend/src/hooks/useGestureActions.ts",
-    "frontend/src/utils/gestureRecognizer.ts",
     "project_state.json"
   ]
 }

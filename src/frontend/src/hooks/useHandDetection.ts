@@ -23,7 +23,11 @@ export function useHandDetection(
   const [indexFingerTip, setIndexFingerTip] = useState<HandLandmark | null>(null);
   const handsRef = useRef<any>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
-  const lastDetectionTime = useRef<number>(0);
+  
+  // Gesture confirmation - require consistent detection over multiple frames
+  const gestureHistoryRef = useRef<(GestureType)[]>([]);
+  const GESTURE_CONFIRMATION_FRAMES = 3; // Require 3 consistent frames
+  const MAX_HISTORY_LENGTH = 5;
 
   useEffect(() => {
     if (!isActive || !videoElement) return;
@@ -50,8 +54,8 @@ export function useHandDetection(
         hands.setOptions({
           maxNumHands: 1,
           modelComplexity: 1,
-          minDetectionConfidence: 0.7,
-          minTrackingConfidence: 0.7,
+          minDetectionConfidence: 0.8,
+          minTrackingConfidence: 0.8,
         });
 
         hands.onResults((results: any) => {
@@ -66,23 +70,39 @@ export function useHandDetection(
               setIndexFingerTip(handLandmarks[8]);
             }
 
-            // Recognize gesture (throttled to avoid too frequent updates)
-            const now = Date.now();
-            if (now - lastDetectionTime.current > 500) {
-              const detectedGesture = recognizeGesture(handLandmarks);
-              setGesture(detectedGesture);
-              lastDetectionTime.current = now;
+            // Recognize gesture with confirmation logic
+            const detectedGesture = recognizeGesture(handLandmarks);
+            
+            // Add to history
+            gestureHistoryRef.current.push(detectedGesture);
+            if (gestureHistoryRef.current.length > MAX_HISTORY_LENGTH) {
+              gestureHistoryRef.current.shift();
+            }
+
+            // Check if gesture is consistent across recent frames
+            if (gestureHistoryRef.current.length >= GESTURE_CONFIRMATION_FRAMES) {
+              const recentGestures = gestureHistoryRef.current.slice(-GESTURE_CONFIRMATION_FRAMES);
+              const allSame = recentGestures.every(g => g === recentGestures[0]);
+              
+              if (allSame && recentGestures[0] !== gesture) {
+                setGesture(recentGestures[0]);
+              }
             }
           } else {
             setLandmarks(null);
             setIndexFingerTip(null);
-            setGesture(null);
+            
+            // Clear gesture when hand is not detected
+            gestureHistoryRef.current = [];
+            if (gesture !== null) {
+              setGesture(null);
+            }
           }
         });
 
         handsRef.current = hands;
 
-        // Start processing video frames
+        // Start processing video frames at optimal rate
         const processFrame = async () => {
           if (!mounted || !videoElement || !handsRef.current) return;
 
@@ -110,7 +130,7 @@ export function useHandDetection(
         handsRef.current.close();
       }
     };
-  }, [isActive, videoElement]);
+  }, [isActive, videoElement, gesture]);
 
   return { landmarks, gesture, indexFingerTip };
 }

@@ -1,220 +1,58 @@
 {
   "kind": "build_request",
-  "title": "Update to Cyber Puppet with new gestures and interactive 3D model",
+  "title": "Fix robot animation lag and disable continuous rotation",
   "projectName": "Cyber Puppet",
-  "priority": "normal",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-20",
-      "text": "Change the main heading text from 'Control the Digital World with Your Hand Gestures' to 'Cyber Puppet'",
+      "id": "REQ-46",
+      "text": "Optimize robot animation speed and responsiveness in RobotModel.tsx to eliminate lag and slowness during all gesture-triggered movements (jump, rotate, raise hands, wave, move backward, clap, move forward)",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-latest"
         ],
         "quotes": [
-          "change the heading as \"Cyber Puppet\""
+          "the robot is lagging the motion by being slow fix this"
         ]
       },
       "acceptanceCriteria": [
-        "The main page heading displays 'Cyber Puppet' as the title",
-        "The heading maintains its current centered position and styling"
+        "All gesture-triggered animations execute immediately without noticeable delay",
+        "Animation transitions complete smoothly within 0.5-1 second",
+        "No frame drops or stuttering during animation playback",
+        "Robot responds to gesture changes in real-time"
       ]
     },
     {
-      "id": "REQ-21",
-      "text": "Add a subheading 'Project by 2nd AIML Students' below the main heading",
+      "id": "REQ-47",
+      "text": "Remove the continuous autonomous rotation animation from RobotModel.tsx so the robot only rotates when the index+middle fingers up gesture is actively detected",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-latest"
         ],
         "quotes": [
-          "the sub heading as \"Project by 2nd AIML Students.\""
+          "the robot need not rotate full time it should rotate when the required hand gesture is given for rotate instruction"
         ]
       },
       "acceptanceCriteria": [
-        "A subheading displaying 'Project by 2nd AIML Students' appears directly below the main heading",
-        "The subheading uses appropriate styling that complements the main heading"
-      ]
-    },
-    {
-      "id": "REQ-22",
-      "text": "Replace the current 3D robot model with a more interactive style that features a rotating turntable/platform beneath the model",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "change the 3d model robot into different style which is more interactive and rotate table"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The 3D model displays on a visible rotating turntable or platform",
-        "The turntable continuously rotates smoothly",
-        "The model maintains compatibility with skeletal animations for gesture responses",
-        "The overall visual style appears more interactive and engaging than the previous model"
-      ]
-    },
-    {
-      "id": "REQ-23",
-      "text": "Update index finger up gesture to trigger 'yay' voice feedback and make the 3D model jump",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "index finger= say yay and the doll should jump"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When only the index finger is extended, the system speaks 'yay'",
-        "The 3D model performs a jump animation in response",
-        "The gesture status display shows the active gesture"
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "text": "Update index and middle fingers up gesture to trigger 'peace bro' voice feedback and make the 3D model rotate",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "index+middle finger= say peace bro and the doll should rotate"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When index and middle fingers are extended, the system speaks 'peace bro'",
-        "The 3D model performs a rotation animation in response",
-        "The gesture status display shows the active gesture"
-      ]
-    },
-    {
-      "id": "REQ-25",
-      "text": "Update index, middle, and ring fingers up gesture to trigger 'i love you' voice feedback and make the 3D model raise both hands",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "index+middle+ring finger= say i love you and the doll should raise both hands"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When index, middle, and ring fingers are extended, the system speaks 'i love you'",
-        "The 3D model raises both hands upward in response",
-        "The gesture status display shows the active gesture"
-      ]
-    },
-    {
-      "id": "REQ-26",
-      "text": "Update all five fingers up gesture to trigger 'hi buddy' voice feedback and make the 3D model wave its right hand",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "index+middle+ring+pinky+thumb  finger = say hi buddy and the doll should wave right hand"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When all five fingers are extended, the system speaks 'hi buddy'",
-        "The 3D model waves its right hand in response",
-        "The gesture status display shows the active gesture"
-      ]
-    },
-    {
-      "id": "REQ-27",
-      "text": "Update index and pinky fingers up gesture to trigger 'yo yo' voice feedback and make the 3D model move backward",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "index+pinky finger = say yo yo and the doll should move backward"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When index and pinky fingers are extended, the system speaks 'yo yo'",
-        "The 3D model moves backward on the platform",
-        "The gesture status display shows the active gesture"
-      ]
-    },
-    {
-      "id": "REQ-28",
-      "text": "Update thumbs up gesture to trigger 'good job' voice feedback and make the 3D model clap its hands",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "thumb finger  up= say good job and the doll should clap"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When the thumb is extended upward, the system speaks 'good job'",
-        "The 3D model performs a clapping animation with both hands",
-        "The gesture status display shows the active gesture"
-      ]
-    },
-    {
-      "id": "REQ-29",
-      "text": "Update closed fist gesture to trigger 'come on fight' voice feedback and make the 3D model move forward",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "closed fist= come on fight and the doll should move forward"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When all fingers are closed in a fist, the system speaks 'come on fight'",
-        "The 3D model moves forward on the platform",
-        "The gesture status display shows the active gesture"
-      ]
-    },
-    {
-      "id": "REQ-30",
-      "text": "Update the instructions modal to reflect all new gesture mappings and their corresponding actions",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "follow these instructions"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The instructions modal displays all updated gesture-to-action mappings",
-        "Each gesture entry shows the finger positions, voice feedback text, and model animation",
-        "The modal remains accessible via the Instructions button"
+        "Robot remains stationary when no gesture is detected",
+        "Robot only rotates when index+middle fingers gesture is recognized",
+        "Rotation starts immediately upon gesture detection",
+        "Rotation stops when gesture is no longer detected or completes its animation cycle"
       ]
     }
   ],
   "constraints": [
-    "Maintain compatibility with MediaPipe Hands library for gesture detection",
-    "Preserve the existing camera preview and gesture status display functionality",
-    "Keep the dark gradient background theme and OKLCH color system",
-    "Do not modify the Internet Identity authentication hooks or main.tsx",
-    "Ensure all animations remain smooth with FPS optimization"
+    "Do not modify gesture recognition logic in useHandDetection.ts or gestureRecognizer.ts",
+    "Maintain the existing gesture-to-animation mapping for index+middle fingers triggering rotation",
+    "Keep all existing animations (jump, clap, wave, move, raise hands) functioning as currently implemented"
   ],
   "nonGoals": [
-    "Changing the overall page layout structure",
-    "Modifying the camera permission flow or error handling",
-    "Altering the sound toggle or loading screen components",
-    "Adding new gesture types beyond the specified seven",
-    "Implementing backend functionality"
+    "Changing the 3D robot model or its visual appearance",
+    "Modifying gesture detection accuracy or threshold values",
+    "Adding new gestures or animations",
+    "Changing voice feedback behavior"
   ],
   "imageRequirements": {
     "required": [],

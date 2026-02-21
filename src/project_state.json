@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 13,
   "summary": "AI & ML based Virtual Mouse web application with hand gesture control, 3D animated robot model on rotating table, real-time gesture detection, and voice feedback - renamed to Cyber Puppet",
   "architectural_notes": [
     "Tech stack: Three.js (3D), MediaPipe Hands (gesture detection), Web Audio API (sound), Vanilla JavaScript",
@@ -11,10 +11,11 @@
     "Real-time hand landmark tracking for cursor mapping",
     "Camera permission flow with getUserMedia API",
     "Chrome browser optimization target",
-    "Rotating turntable/platform for 3D model display"
+    "Rotating turntable/platform for 3D model display",
+    "Robot rotation should be gesture-triggered only, not autonomous/continuous"
   ],
   "known_issues": [],
-  "isFixRequest": false,
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-modern-dark-themed-homepage-with-a-dark-gradient-background-featuring-the-centered-title-control-the-digital-world-with-your-hand-gestures-at-the-top",
@@ -255,6 +256,118 @@
         "REQ-30"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-the-round-turntable-platform-element-that-is-currently-displayed-below-the-3d-robot-model",
+      "title": "Remove the round turntable/platform element that is currently displayed below the 3D robot model",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-autonomous-rotation-animation-for-the-3d-robot-model-that-continuously-rotates-the-robot-on-its-vertical-axis-independent-of-gesture-input",
+      "title": "Implement autonomous rotation animation for the 3D robot model that continuously rotates the robot on its vertical axis independent of gesture input",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-index-middle-fingers-up-gesture-detection-to-trigger-the-robot-rotation-animation-when-detected",
+      "title": "Update the index+middle fingers up gesture detection to trigger the robot rotation animation when detected",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-the-accuracy-of-hand-gesture-recognition-for-all-seven-gestures-index-finger-index-middle-index-middle-ring-all-five-fingers-index-pinky-thumb-up-closed-fist-to-ensure-the-camera-correctly-identifies-each-gesture-type",
+      "title": "Improve the accuracy of hand gesture recognition for all seven gestures (index finger, index+middle, index+middle+ring, all five fingers, index+pinky, thumb up, closed fist) to ensure the camera correctly identifies each gesture type",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-optimize-the-3d-robot-animation-performance-to-ensure-all-gesture-triggered-movements-jump-rotate-raise-hands-wave-move-backward-clap-move-forward-execute-smoothly-and-quickly-without-lag-or-slowness",
+      "title": "Optimize the 3D robot animation performance to ensure all gesture-triggered movements (jump, rotate, raise hands, wave, move backward, clap, move forward) execute smoothly and quickly without lag or slowness",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-index-finger-up-gesture-to-trigger-yay-voice-feedback-and-make-the-robot-jump-with-smooth-animation",
+      "title": "Update the index finger up gesture to trigger 'yay' voice feedback and make the robot jump with smooth animation",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-index-middle-fingers-up-gesture-to-trigger-peace-bro-voice-feedback-and-make-the-robot-rotate-with-smooth-animation",
+      "title": "Update the index+middle fingers up gesture to trigger 'peace bro' voice feedback and make the robot rotate with smooth animation",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-index-middle-ring-fingers-up-gesture-to-trigger-i-love-you-voice-feedback-and-make-the-robot-raise-both-hands-with-smooth-animation",
+      "title": "Update the index+middle+ring fingers up gesture to trigger 'i love you' voice feedback and make the robot raise both hands with smooth animation",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-all-five-fingers-up-gesture-to-trigger-hi-buddy-voice-feedback-and-make-the-robot-wave-its-right-hand-with-smooth-animation",
+      "title": "Update the all five fingers up gesture to trigger 'hi buddy' voice feedback and make the robot wave its right hand with smooth animation",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-index-pinky-fingers-up-gesture-to-trigger-yo-yo-voice-feedback-and-make-the-robot-move-backward-with-smooth-animation",
+      "title": "Update the index+pinky fingers up gesture to trigger 'yo yo' voice feedback and make the robot move backward with smooth animation",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-thumb-up-gesture-to-trigger-good-job-voice-feedback-and-make-the-robot-clap-its-hands-with-smooth-animation",
+      "title": "Update the thumb up gesture to trigger 'good job' voice feedback and make the robot clap its hands with smooth animation",
+      "reqIds": [
+        "REQ-43"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-closed-fist-gesture-to-trigger-come-on-fight-voice-feedback-and-make-the-robot-move-forward-with-smooth-animation",
+      "title": "Update the closed fist gesture to trigger 'come on fight' voice feedback and make the robot move forward with smooth animation",
+      "reqIds": [
+        "REQ-44"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-optimize-robot-animation-speed-and-responsiveness-in-robotmodel-tsx-to-eliminate-lag-and-slowness-during-all-gesture-triggered-movements-jump-rotate-raise-hands-wave-move-backward-clap-move-forward",
+      "title": "Optimize robot animation speed and responsiveness in RobotModel.tsx to eliminate lag and slowness during all gesture-triggered movements (jump, rotate, raise hands, wave, move backward, clap, move forward)",
+      "reqIds": [
+        "REQ-46"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-continuous-autonomous-rotation-animation-from-robotmodel-tsx-so-the-robot-only-rotates-when-the-index-middle-fingers-up-gesture-is-actively-detected",
+      "title": "Remove the continuous autonomous rotation animation from RobotModel.tsx so the robot only rotates when the index+middle fingers up gesture is actively detected",
+      "reqIds": [
+        "REQ-47"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -333,6 +446,60 @@
     {
       "id": "AR-13",
       "summary": "Update gesture mappings: index finger (yay/jump), index+middle (peace bro/rotate), index+middle+ring (i love you/raise both hands), all 5 fingers (hi buddy/wave right hand), index+pinky (yo yo/move backward), thumbs up (good job/clap), closed fist (come on fight/move forward)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Remove round element below 3D robot and implement autonomous rotation/movement without ball control",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Update the index+middle fingers up gesture to trigger 'peace bro' voice feedback using the Web Speech API",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Update the Instructions modal to reflect that the index+middle fingers gesture triggers rotation and 'peace bro' voice feedback",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Improve camera hand gesture recognition accuracy for all 7 gestures",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Optimize robot animation smoothness and speed for all gesture-triggered movements",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Update the instructions modal to accurately reflect all gesture mappings: index finger (yay/jump), index+middle (peace bro/rotate), index+middle+ring (i love you/raise both hands), all five fingers (hi buddy/wave right hand), index+pinky (yo yo/move backward), thumb up (good job/clap), closed fist (come on fight/move forward)",
+      "reqIds": [
+        "REQ-45"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Fix robot animation lag/slowness - optimize animation speed and responsiveness",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-31",
+      "summary": "Disable continuous autonomous robot rotation - robot should only rotate when index+middle fingers gesture is detected",
       "reqIds": [],
       "status": "pending"
     }
