@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>Virtual Mouse - Hand Gesture Control</title>
+        <meta name="description" content="Control the digital world with your hand gestures using AI-powered virtual mouse" />
+        
+        <!-- MediaPipe Hands CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+        
+        <!-- Framer Motion for animations -->
+        <script src="https://cdn.jsdelivr.net/npm/framer-motion@11/dist/framer-motion.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id='root'></div>
+        <script type='module' src='/src/main.tsx'></script>
+    </body>
+</html>

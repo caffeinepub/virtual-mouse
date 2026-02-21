@@ -1,0 +1,344 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "AI & ML based Virtual Mouse web application with hand gesture control, 3D animated robot model on rotating table, real-time gesture detection, and voice feedback - renamed to Cyber Puppet",
+  "architectural_notes": [
+    "Tech stack: Three.js (3D), MediaPipe Hands (gesture detection), Web Audio API (sound), Vanilla JavaScript",
+    "File structure: index.html, style.css, app.js, doll.js, gesture.js",
+    "WebGL renderer for 3D graphics",
+    "GLTF model format for animated robot with skeletal animations",
+    "7 gesture patterns: index+middle+ring, index up, index+middle, thumbs up, closed fist, all 5 fingers, index+pinky",
+    "Real-time hand landmark tracking for cursor mapping",
+    "Camera permission flow with getUserMedia API",
+    "Chrome browser optimization target",
+    "Rotating turntable/platform for 3D model display"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-modern-dark-themed-homepage-with-a-dark-gradient-background-featuring-the-centered-title-control-the-digital-world-with-your-hand-gestures-at-the-top",
+      "title": "Create a modern dark-themed homepage with a dark gradient background, featuring the centered title 'Control the Digital World with Your Hand Gestures' at the top",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-centered-animated-3d-robot-model-using-three-js-with-a-gltf-format-featuring-smooth-rounded-futuristic-design-with-glowing-cyan-blue-accents-and-skeletal-animation-support",
+      "title": "Display a centered animated 3D robot model using Three.js with a GLTF format, featuring smooth, rounded, futuristic design with glowing cyan/blue accents and skeletal animation support",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-live-camera-canvas-section-below-the-3d-model-showing-a-small-preview-box-of-the-webcam-feed",
+      "title": "Add a live camera canvas section below the 3D model showing a small preview box of the webcam feed",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-enable-camera-button-that-properly-requests-webcam-access-using-navigator-mediadevices-getusermedia-with-appropriate-error-handling-for-denied-permissions",
+      "title": "Implement an 'Enable Camera' button that properly requests webcam access using navigator.mediaDevices.getUserMedia with appropriate error handling for denied permissions",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-mediapipe-hands-library-to-detect-hand-gestures-in-real-time-from-the-webcam-feed-tracking-hand-landmarks-and-finger-positions",
+      "title": "Integrate MediaPipe Hands library to detect hand gestures in real-time from the webcam feed, tracking hand landmarks and finger positions",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-detection-for-index-middle-ring-fingers-up-gesture-that-triggers-i-love-you-voice-feedback-makes-the-robot-blink-eyes-and-moves-the-robot-forward-with-smooth-skeletal-animation",
+      "title": "Implement detection for index+middle+ring fingers up gesture that triggers 'I love you' voice feedback, makes the robot blink eyes, and moves the robot forward with smooth skeletal animation",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-detection-for-index-finger-up-gesture-that-triggers-yay-voice-feedback-and-makes-the-robot-jump-with-smooth-skeletal-animation",
+      "title": "Implement detection for index finger up gesture that triggers 'Yay' voice feedback and makes the robot jump with smooth skeletal animation",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-detection-for-index-middle-fingers-up-gesture-that-triggers-peace-bro-voice-feedback-and-makes-the-robot-rotate-with-smooth-skeletal-animation",
+      "title": "Implement detection for index+middle fingers up gesture that triggers 'Peace bro' voice feedback and makes the robot rotate with smooth skeletal animation",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-detection-for-thumbs-up-gesture-that-triggers-good-job-voice-feedback-and-makes-the-robot-shake-its-head-with-smooth-skeletal-animation",
+      "title": "Implement detection for thumbs up gesture that triggers 'Good job' voice feedback and makes the robot shake its head with smooth skeletal animation",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-detection-for-closed-fist-gesture-that-triggers-go-fight-voice-feedback-and-moves-the-robot-forward-with-smooth-skeletal-animation",
+      "title": "Implement detection for closed fist gesture that triggers 'Go fight' voice feedback and moves the robot forward with smooth skeletal animation",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-detection-for-all-five-fingers-up-gesture-that-triggers-hi-buddy-voice-feedback-and-makes-the-robot-wave-its-hands-with-smooth-skeletal-animation",
+      "title": "Implement detection for all five fingers up gesture that triggers 'Hi buddy' voice feedback and makes the robot wave its hands with smooth skeletal animation",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-detection-for-index-pinky-fingers-up-gesture-that-triggers-yo-yo-voice-feedback-and-makes-the-robot-rotate-its-head-with-smooth-skeletal-animation",
+      "title": "Implement detection for index+pinky fingers up gesture that triggers 'Yo yo' voice feedback and makes the robot rotate its head with smooth skeletal animation",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-sound-feedback-using-web-audio-api-that-produces-clear-audible-voice-output-for-each-detected-gesture",
+      "title": "Implement sound feedback using Web Audio API that produces clear, audible voice output for each detected gesture",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-gesture-status-text-above-the-camera-canvas-that-updates-in-real-time-to-show-the-currently-detected-gesture",
+      "title": "Display gesture status text above the camera canvas that updates in real-time to show the currently detected gesture",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-toggle-sound-button-with-glowing-neon-effect-that-enables-or-disables-audio-feedback",
+      "title": "Add a 'Toggle Sound' button with glowing neon effect that enables or disables audio feedback",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-instructions-button-with-glowing-neon-effect-that-displays-information-about-supported-hand-gestures-and-their-corresponding-actions",
+      "title": "Add an 'Instructions' button with glowing neon effect that displays information about supported hand gestures and their corresponding actions",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-loading-animation-that-displays-while-the-3d-model-and-libraries-are-being-initialized",
+      "title": "Implement a loading animation that displays while the 3D model and libraries are being initialized",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-floating-virtual-cursor-that-tracks-and-displays-the-index-finger-tip-position-on-screen",
+      "title": "Implement a floating virtual cursor that tracks and displays the index finger tip position on screen",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-optimize-the-application-for-performance-with-fps-optimization-ensuring-smooth-rendering-on-both-mobile-and-desktop-screens",
+      "title": "Optimize the application for performance with FPS optimization, ensuring smooth rendering on both mobile and desktop screens",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-change-the-main-heading-text-from-control-the-digital-world-with-your-hand-gestures-to-cyber-puppet",
+      "title": "Change the main heading text from 'Control the Digital World with Your Hand Gestures' to 'Cyber Puppet'",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-subheading-project-by-2nd-aiml-students-below-the-main-heading",
+      "title": "Add a subheading 'Project by 2nd AIML Students' below the main heading",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-3d-robot-model-with-a-more-interactive-style-that-features-a-rotating-turntable-platform-beneath-the-model",
+      "title": "Replace the current 3D robot model with a more interactive style that features a rotating turntable/platform beneath the model",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-index-finger-up-gesture-to-trigger-yay-voice-feedback-and-make-the-3d-model-jump",
+      "title": "Update index finger up gesture to trigger 'yay' voice feedback and make the 3D model jump",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-index-and-middle-fingers-up-gesture-to-trigger-peace-bro-voice-feedback-and-make-the-3d-model-rotate",
+      "title": "Update index and middle fingers up gesture to trigger 'peace bro' voice feedback and make the 3D model rotate",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-index-middle-and-ring-fingers-up-gesture-to-trigger-i-love-you-voice-feedback-and-make-the-3d-model-raise-both-hands",
+      "title": "Update index, middle, and ring fingers up gesture to trigger 'i love you' voice feedback and make the 3D model raise both hands",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-five-fingers-up-gesture-to-trigger-hi-buddy-voice-feedback-and-make-the-3d-model-wave-its-right-hand",
+      "title": "Update all five fingers up gesture to trigger 'hi buddy' voice feedback and make the 3D model wave its right hand",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-index-and-pinky-fingers-up-gesture-to-trigger-yo-yo-voice-feedback-and-make-the-3d-model-move-backward",
+      "title": "Update index and pinky fingers up gesture to trigger 'yo yo' voice feedback and make the 3D model move backward",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-thumbs-up-gesture-to-trigger-good-job-voice-feedback-and-make-the-3d-model-clap-its-hands",
+      "title": "Update thumbs up gesture to trigger 'good job' voice feedback and make the 3D model clap its hands",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-closed-fist-gesture-to-trigger-come-on-fight-voice-feedback-and-make-the-3d-model-move-forward",
+      "title": "Update closed fist gesture to trigger 'come on fight' voice feedback and make the 3D model move forward",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-instructions-modal-to-reflect-all-new-gesture-mappings-and-their-corresponding-actions",
+      "title": "Update the instructions modal to reflect all new gesture mappings and their corresponding actions",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Modern dark themed homepage with title and responsive layout",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "3D animated GLTF robot model with Three.js and skeletal animation transitions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Live camera canvas with webcam access and MediaPipe Hands gesture detection",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "7 hand gesture detections with corresponding voice feedback and robot animations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Web Audio API sound feedback with clear audible output",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "UI buttons: Enable Camera, Toggle Sound, Instructions with glowing neon effects",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Gesture status text display above camera canvas",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Loading animation, FPS optimization, and error handling",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Floating virtual cursor mapped to hand movement",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Mobile and desktop responsive design with dark gradient background",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Update heading to 'Cyber Puppet' and add subheading 'Project by 2nd AIML Students'",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Replace 3D robot model with more interactive style on rotating table/turntable",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Update gesture mappings: index finger (yay/jump), index+middle (peace bro/rotate), index+middle+ring (i love you/raise both hands), all 5 fingers (hi buddy/wave right hand), index+pinky (yo yo/move backward), thumbs up (good job/clap), closed fist (come on fight/move forward)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Virtual Mouse",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,235 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-change-the-main-heading-text-from-control-the-digital-world-with-your-hand-gestures-to-cyber-puppet",
+      "featureTitle": "Change the main heading text from 'Control the Digital World with Your Hand Gestures' to 'Cyber Puppet'",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-subheading-project-by-2nd-aiml-students-below-the-main-heading",
+      "featureTitle": "Add a subheading 'Project by 2nd AIML Students' below the main heading",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-replace-the-current-3d-robot-model-with-a-more-interactive-style-that-features-a-rotating-turntable-platform-beneath-the-model",
+      "featureTitle": "Replace the current 3D robot model with a more interactive style that features a rotating turntable/platform beneath the model",
+      "files": [
+        "frontend/src/components/RobotModel.tsx"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-index-finger-up-gesture-to-trigger-yay-voice-feedback-and-make-the-3d-model-jump",
+      "featureTitle": "Update index finger up gesture to trigger 'yay' voice feedback and make the 3D model jump",
+      "files": [
+        "frontend/src/components/GestureStatus.tsx",
+        "frontend/src/components/RobotModel.tsx",
+        "frontend/src/hooks/useGestureActions.ts",
+        "frontend/src/utils/gestureRecognizer.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-index-and-middle-fingers-up-gesture-to-trigger-peace-bro-voice-feedback-and-make-the-3d-model-rotate",
+      "featureTitle": "Update index and middle fingers up gesture to trigger 'peace bro' voice feedback and make the 3D model rotate",
+      "files": [
+        "frontend/src/components/GestureStatus.tsx",
+        "frontend/src/components/RobotModel.tsx",
+        "frontend/src/hooks/useGestureActions.ts",
+        "frontend/src/utils/gestureRecognizer.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-index-middle-and-ring-fingers-up-gesture-to-trigger-i-love-you-voice-feedback-and-make-the-3d-model-raise-both-hands",
+      "featureTitle": "Update index, middle, and ring fingers up gesture to trigger 'i love you' voice feedback and make the 3D model raise both hands",
+      "files": [
+        "frontend/src/components/GestureStatus.tsx",
+        "frontend/src/components/RobotModel.tsx",
+        "frontend/src/hooks/useGestureActions.ts",
+        "frontend/src/utils/gestureRecognizer.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-all-five-fingers-up-gesture-to-trigger-hi-buddy-voice-feedback-and-make-the-3d-model-wave-its-right-hand",
+      "featureTitle": "Update all five fingers up gesture to trigger 'hi buddy' voice feedback and make the 3D model wave its right hand",
+      "files": [
+        "frontend/src/components/GestureStatus.tsx",
+        "frontend/src/components/RobotModel.tsx",
+        "frontend/src/hooks/useGestureActions.ts",
+        "frontend/src/utils/gestureRecognizer.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-26"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-index-and-pinky-fingers-up-gesture-to-trigger-yo-yo-voice-feedback-and-make-the-3d-model-move-backward",
+      "featureTitle": "Update index and pinky fingers up gesture to trigger 'yo yo' voice feedback and make the 3D model move backward",
+      "files": [
+        "frontend/src/components/GestureStatus.tsx",
+        "frontend/src/components/RobotModel.tsx",
+        "frontend/src/hooks/useGestureActions.ts",
+        "frontend/src/utils/gestureRecognizer.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-27"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-thumbs-up-gesture-to-trigger-good-job-voice-feedback-and-make-the-3d-model-clap-its-hands",
+      "featureTitle": "Update thumbs up gesture to trigger 'good job' voice feedback and make the 3D model clap its hands",
+      "files": [
+        "frontend/src/components/GestureStatus.tsx",
+        "frontend/src/components/RobotModel.tsx",
+        "frontend/src/hooks/useGestureActions.ts",
+        "frontend/src/utils/gestureRecognizer.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-28"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-closed-fist-gesture-to-trigger-come-on-fight-voice-feedback-and-make-the-3d-model-move-forward",
+      "featureTitle": "Update closed fist gesture to trigger 'come on fight' voice feedback and make the 3D model move forward",
+      "files": [
+        "frontend/src/components/GestureStatus.tsx",
+        "frontend/src/components/RobotModel.tsx",
+        "frontend/src/hooks/useGestureActions.ts",
+        "frontend/src/utils/gestureRecognizer.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-29"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-instructions-modal-to-reflect-all-new-gesture-mappings-and-their-corresponding-actions",
+      "featureTitle": "Update the instructions modal to reflect all new gesture mappings and their corresponding actions",
+      "files": [
+        "frontend/src/components/InstructionsModal.tsx"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-30"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

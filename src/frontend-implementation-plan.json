@@ -1,0 +1,287 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update to Cyber Puppet with new gestures and interactive 3D model",
+  "requirements": [
+    {
+      "id": "REQ-20",
+      "summary": "Change the main heading text to 'Cyber Puppet'",
+      "acceptanceCriteria": [
+        "The main page heading displays 'Cyber Puppet' as the title",
+        "The heading maintains its current centered position and styling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update the main heading text from 'Control the Digital World with Your Hand Gestures' to 'Cyber Puppet'. Locate the h1 element in the header section and replace its text content while preserving all existing styling classes and attributes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Add a subheading 'Project by 2nd AIML Students' below the main heading",
+      "acceptanceCriteria": [
+        "A subheading displaying 'Project by 2nd AIML Students' appears directly below the main heading",
+        "The subheading uses appropriate styling that complements the main heading"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a new subheading element (p or h2) directly below the main 'Cyber Puppet' heading that displays 'Project by 2nd AIML Students'. Apply complementary styling using text-lg or text-xl with appropriate opacity and spacing to match the dark gradient theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Replace the current 3D robot model with a more interactive style that features a rotating turntable/platform beneath the model",
+      "acceptanceCriteria": [
+        "The 3D model displays on a visible rotating turntable or platform",
+        "The turntable continuously rotates smoothly",
+        "The model maintains compatibility with skeletal animations for gesture responses",
+        "The overall visual style appears more interactive and engaging than the previous model"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Add a rotating circular platform/turntable mesh beneath the existing robot model using Three.js primitives (cylinder or circle geometry). Implement continuous smooth rotation animation for the platform using useFrame. Ensure the robot model remains positioned on top of the platform and that all existing skeletal animations (jump, rotate, move forward, head shake) continue to work. Enhance visual interactivity with materials, lighting, or platform styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Update index finger up gesture to trigger 'yay' voice feedback and make the 3D model jump",
+      "acceptanceCriteria": [
+        "When only the index finger is extended, the system speaks 'yay'",
+        "The 3D model performs a jump animation in response",
+        "The gesture status display shows the active gesture"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestureRecognizer.ts",
+          "operation": "modify",
+          "description": "Update the gesture recognition logic to detect when only the index finger is extended (thumb and other fingers closed). Map this detection to the 'yay' gesture type, ensuring it returns the correct gesture identifier that the audio and animation systems expect."
+        },
+        {
+          "path": "frontend/src/hooks/useGestureActions.ts",
+          "operation": "modify",
+          "description": "Update the gesture-to-speech mapping to associate the 'yay' gesture with the text 'yay'. Ensure the audio feedback triggers when this gesture is detected."
+        },
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Ensure the 'yay' gesture triggers the jump animation for the 3D model. Verify or update the gesture-to-animation mapping so that when currentGesture is 'yay', the model performs a vertical jump animation."
+        },
+        {
+          "path": "frontend/src/components/GestureStatus.tsx",
+          "operation": "modify",
+          "description": "Update the gesture display mapping to show appropriate emoji and label for the 'yay' gesture when it is detected."
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Update index and middle fingers up gesture to trigger 'peace bro' voice feedback and make the 3D model rotate",
+      "acceptanceCriteria": [
+        "When index and middle fingers are extended, the system speaks 'peace bro'",
+        "The 3D model performs a rotation animation in response",
+        "The gesture status display shows the active gesture"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestureRecognizer.ts",
+          "operation": "modify",
+          "description": "Update the gesture recognition logic to detect when index and middle fingers are extended (thumb, ring, and pinky closed). Map this detection to the 'peace' gesture type."
+        },
+        {
+          "path": "frontend/src/hooks/useGestureActions.ts",
+          "operation": "modify",
+          "description": "Update the gesture-to-speech mapping to associate the 'peace' gesture with the text 'peace bro'."
+        },
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Ensure the 'peace' gesture triggers a rotation animation for the 3D model. Verify or update the gesture-to-animation mapping so that when currentGesture is 'peace', the model performs a smooth rotation animation."
+        },
+        {
+          "path": "frontend/src/components/GestureStatus.tsx",
+          "operation": "modify",
+          "description": "Update the gesture display mapping to show appropriate emoji and label for the 'peace' gesture."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Update index, middle, and ring fingers up gesture to trigger 'i love you' voice feedback and make the 3D model raise both hands",
+      "acceptanceCriteria": [
+        "When index, middle, and ring fingers are extended, the system speaks 'i love you'",
+        "The 3D model raises both hands upward in response",
+        "The gesture status display shows the active gesture"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestureRecognizer.ts",
+          "operation": "modify",
+          "description": "Update the gesture recognition logic to detect when index, middle, and ring fingers are extended (thumb and pinky closed). Map this detection to the 'love' gesture type."
+        },
+        {
+          "path": "frontend/src/hooks/useGestureActions.ts",
+          "operation": "modify",
+          "description": "Update the gesture-to-speech mapping to associate the 'love' gesture with the text 'i love you'."
+        },
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Add or update the 'love' gesture animation to make the 3D model raise both hands upward. Implement skeletal animation that moves both arm bones upward in a raising motion when currentGesture is 'love'."
+        },
+        {
+          "path": "frontend/src/components/GestureStatus.tsx",
+          "operation": "modify",
+          "description": "Update the gesture display mapping to show appropriate emoji and label for the 'love' gesture."
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Update all five fingers up gesture to trigger 'hi buddy' voice feedback and make the 3D model wave its right hand",
+      "acceptanceCriteria": [
+        "When all five fingers are extended, the system speaks 'hi buddy'",
+        "The 3D model waves its right hand in response",
+        "The gesture status display shows the active gesture"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestureRecognizer.ts",
+          "operation": "modify",
+          "description": "Update the gesture recognition logic to detect when all five fingers are extended (open palm). Map this detection to the 'wave' gesture type."
+        },
+        {
+          "path": "frontend/src/hooks/useGestureActions.ts",
+          "operation": "modify",
+          "description": "Update the gesture-to-speech mapping to associate the 'wave' gesture with the text 'hi buddy'."
+        },
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Ensure the 'wave' gesture triggers a right hand waving animation for the 3D model. Verify or update the animation so that when currentGesture is 'wave', the model's right arm/hand performs a waving motion."
+        },
+        {
+          "path": "frontend/src/components/GestureStatus.tsx",
+          "operation": "modify",
+          "description": "Update the gesture display mapping to show appropriate emoji and label for the 'wave' gesture."
+        }
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "summary": "Update index and pinky fingers up gesture to trigger 'yo yo' voice feedback and make the 3D model move backward",
+      "acceptanceCriteria": [
+        "When index and pinky fingers are extended, the system speaks 'yo yo'",
+        "The 3D model moves backward on the platform",
+        "The gesture status display shows the active gesture"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestureRecognizer.ts",
+          "operation": "modify",
+          "description": "Update the gesture recognition logic to detect when index and pinky fingers are extended (thumb, middle, and ring closed). Map this detection to the 'rock' gesture type."
+        },
+        {
+          "path": "frontend/src/hooks/useGestureActions.ts",
+          "operation": "modify",
+          "description": "Update the gesture-to-speech mapping to associate the 'rock' gesture with the text 'yo yo'."
+        },
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Add or update the 'rock' gesture animation to make the 3D model move backward on the platform. Implement position animation that translates the model's z-position backward when currentGesture is 'rock', with bounds checking to prevent moving too far."
+        },
+        {
+          "path": "frontend/src/components/GestureStatus.tsx",
+          "operation": "modify",
+          "description": "Update the gesture display mapping to show appropriate emoji and label for the 'rock' gesture."
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Update thumbs up gesture to trigger 'good job' voice feedback and make the 3D model clap its hands",
+      "acceptanceCriteria": [
+        "When the thumb is extended upward, the system speaks 'good job'",
+        "The 3D model performs a clapping animation with both hands",
+        "The gesture status display shows the active gesture"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestureRecognizer.ts",
+          "operation": "modify",
+          "description": "Update the gesture recognition logic to detect thumbs up (thumb extended, other fingers closed). Map this detection to the 'thumbsup' gesture type."
+        },
+        {
+          "path": "frontend/src/hooks/useGestureActions.ts",
+          "operation": "modify",
+          "description": "Update the gesture-to-speech mapping to associate the 'thumbsup' gesture with the text 'good job'."
+        },
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Add or update the 'thumbsup' gesture animation to make the 3D model clap its hands. Implement skeletal animation that brings both hands together repeatedly in a clapping motion when currentGesture is 'thumbsup'."
+        },
+        {
+          "path": "frontend/src/components/GestureStatus.tsx",
+          "operation": "modify",
+          "description": "Update the gesture display mapping to show appropriate emoji and label for the 'thumbsup' gesture."
+        }
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "summary": "Update closed fist gesture to trigger 'come on fight' voice feedback and make the 3D model move forward",
+      "acceptanceCriteria": [
+        "When all fingers are closed in a fist, the system speaks 'come on fight'",
+        "The 3D model moves forward on the platform",
+        "The gesture status display shows the active gesture"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/gestureRecognizer.ts",
+          "operation": "modify",
+          "description": "Update the gesture recognition logic to detect closed fist (all fingers closed). Map this detection to the 'fist' gesture type."
+        },
+        {
+          "path": "frontend/src/hooks/useGestureActions.ts",
+          "operation": "modify",
+          "description": "Update the gesture-to-speech mapping to associate the 'fist' gesture with the text 'come on fight'."
+        },
+        {
+          "path": "frontend/src/components/RobotModel.tsx",
+          "operation": "modify",
+          "description": "Ensure the 'fist' gesture triggers forward movement for the 3D model. Verify or update the animation so that when currentGesture is 'fist', the model translates forward along the z-axis on the platform, with bounds checking to prevent moving too far."
+        },
+        {
+          "path": "frontend/src/components/GestureStatus.tsx",
+          "operation": "modify",
+          "description": "Update the gesture display mapping to show appropriate emoji and label for the 'fist' gesture."
+        }
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "summary": "Update the instructions modal to reflect all new gesture mappings and their corresponding actions",
+      "acceptanceCriteria": [
+        "The instructions modal displays all updated gesture-to-action mappings",
+        "Each gesture entry shows the finger positions, voice feedback text, and model animation",
+        "The modal remains accessible via the Instructions button"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/InstructionsModal.tsx",
+          "operation": "modify",
+          "description": "Update the gesture instruction list to reflect all new mappings: Index finger → 'yay' + jump; Index+middle → 'peace bro' + rotate; Index+middle+ring → 'i love you' + raise hands; All five fingers → 'hi buddy' + wave right hand; Index+pinky → 'yo yo' + move backward; Thumbs up → 'good job' + clap; Closed fist → 'come on fight' + move forward. Update the finger position descriptions, voice feedback text, and robot action descriptions for each gesture entry."
+        }
+      ]
+    }
+  ]
+}
